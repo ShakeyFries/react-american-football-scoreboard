@@ -5,6 +5,8 @@ import BottomRow from "./BottomRow";
 
 function App() {
   //TODO: STEP 2 - Establish your applictaion's state with some useState hooks.  You'll need one for the home score and another for the away score.
+
+  // function for scoring 
   const [homeScore, setHomeScore] = useState (0);
   const [awayScore, setAwayScore] = useState(0);
   const homeTouchDown = e => {
@@ -18,8 +20,8 @@ function App() {
   };
   const awayFieldGoal = e => {
     setAwayScore(awayScore + 3);
-  }
- 
+  };
+
   return (
     
     <div className="container">
@@ -38,21 +40,26 @@ function App() {
             <div className="away__score">{awayScore}</div>
           </div>
         </div>
+
         <BottomRow />
       </section>
-      <section className="buttons">
-        <div className="homeButtons">
-          {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
-          <button onClick={homeTouchDown} className="homeButtons__touchdown">Home Touchdown</button>
-          <button onClick={homeFieldGoal} className="homeButtons__fieldGoal">Home Field Goal</button>
-        </div>
-        <div className="awayButtons">
-          <button onClick = {awayTouchDown} className="awayButtons__touchdown">Away Touchdown</button>
-          <button onClick = {awayFieldGoal} className="awayButtons__fieldGoal">Away Field Goal</button>
-        </div>
-      </section>
+      
+          <section className="buttons">
+            <div className="homeButtons">
+              {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
+              <button onClick={homeTouchDown} className="homeButtons__touchdown">Home Touchdown</button>
+
+              <button onClick={homeFieldGoal} className="homeButtons__fieldGoal">Home Field Goal</button>
+            </div>
+
+            <div className="awayButtons">
+              <button onClick = {awayTouchDown} className="awayButtons__touchdown">Away Touchdown</button>
+              <button onClick = {awayFieldGoal} className="awayButtons__fieldGoal">Away Field Goal</button>
+            </div>
+        </section>
     </div>
   );
 }
+
 
 export default App;
